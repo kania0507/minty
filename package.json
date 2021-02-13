@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "prod": "webpack   -p"
+    "prod": "webpack   -p --watch"
   },
   "author": "AKC",
   "license": "ISC",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "moment": "^2.29.1",
     "vue": "^2.0.8",
     "vue-router": "^3.0.1"
   }

@@ -1,20 +1,25 @@
 <template>
-  <div id="app" class="main" :style="someStyle">  
-   <h2>Ello App 1</h2>
-   	<div class="header"  ></div> 
+  <div id="app" class="main" :style="someStyle">   
+   <vheader class="header"></vheader>
+   <posts></posts>
   </div>
 </template> 
-<script >  
+
+<script >
+import posts from './components/posts';
+import vheader from './components/vheader';
+
 export default {
  name: 'app',
  components: {
-    
+    posts,
+    vheader
   },
   
   data: function () {
     return { 
 	 someStyle: {
-		background: 'url('+stylesheetDir+'/src/assets/14.png) no-repeat'
+		//background: 'url('+stylesheetDir+'/src/assets/14.png) no-repeat'
 	 }
 
     }
@@ -27,3 +32,4 @@ export default {
 }
 </script>
 <style lang='scss' src="../styles/app.scss"></style>
+<style lang='scss' src="../styles/globals.scss"></style>
