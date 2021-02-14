@@ -9,11 +9,15 @@
 import posts from './components/posts';
 import vheader from './components/vheader';
 
+
+
+
+
 export default {
  name: 'app',
  components: {
     posts,
-    vheader
+    vheader 
   },
   
   data: function () {
@@ -25,7 +29,7 @@ export default {
     }
   },
   mounted: function() {    
-	console.log(stylesheetDir);
+	  //console.log(stylesheetDir);
   },
   methods: {  
   }

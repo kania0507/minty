@@ -69,7 +69,7 @@ export default {
         })
         .then(response => {
           this.menus = response.data;
-         
+          console.log("MENUS: ");
           console.log(this.menus);
         })
         .catch(error => {

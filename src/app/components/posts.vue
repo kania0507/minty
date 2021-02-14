@@ -1,18 +1,24 @@
 <template>
-    <div class="posts" >
-         <div class="post" v-for="(post, index) in posts" :key="index">
-            {{ post.featured_media }}
-            <img v-if="post.featured_media!=0" :src="post._embedded['wp:featuredmedia'][0].source_url" class="img-responsive" />
-             <h3>{{ post.title.rendered }} <small>{{ getPostDate(post.date) }} </small></h3>
+    <div class="posts" :class="$mq" :column="$mq | mq({
+        mobile: 1,
+        tablet: 2,
+        laptop: 2,
+        desktop: 2
+      })">
+        <div v-for="(post, index) in posts" :key="index" class="post"     :style="[ post.featured_media!=0 ? { 'backgroundImage': 'url(' + post._embedded['wp:featuredmedia'][0].source_url   + ')', 'background-size': 'cover' } : {}]" > 
+         
+            {{ post.featured_media }} 
+             <h3>{{index}}{{ post.title.rendered }} <small>{{ getPostDate(post.date) }} </small></h3>
              {{ post.excerpt.rendered }} <br />Author: {{ post.author }}, Category: {{ post.categories }}
              
+        
         </div>
     </div>
 </template>
 
 <script>
 import axios from  "axios";
-import moment from "moment"
+import moment from "moment" 
 
 export default {
     name: 'posts',
@@ -22,22 +28,21 @@ export default {
       // Wordpress Posts Endpoint
       postsUrl: "./wp-json/wp/v2/posts",
       queryOptions: {
-        per_page: 10, // Only retrieve the 10 most recent blog posts.
-        page: 1, // Current page of the collection.
-        _embed: true //Response should include embedded resources.
-      },
-      // Returned Posts in an Array
-      posts: [],  
+        per_page: 10, 
+        page: 1, // Current page 
+        _embed: true //Response should include embedded resources
+      }, 
+      posts: [],   // Returned Posts
     };
-  },
+  }, 
   methods: {
-    // Get Recent Posts From WordPress Site
+    // Get Recent Posts from WP API
     getRecentPosts() {
       axios
         .get(this.postsUrl, { params: this.queryOptions })
         .then(response => {
           this.posts = response.data;
-         
+          console.log('POSTS: ');
           console.log(this.posts);
         })
         .catch(error => {
