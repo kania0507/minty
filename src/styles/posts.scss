@@ -1,5 +1,6 @@
 .posts {
-    
+    position: relative;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, auto); 
     grid-column-gap: 1em;
@@ -7,12 +8,22 @@
     
     padding-top: 1em;
     padding-bottom: 1em; 
+ 
 
+    h2 {
+        font-size: 1.75em;
+        line-height: 2.25em; 
+        //position: absolute;
+        //bottom: 0;
+
+        &.mobile, &.tablet {
+
+            font-size: 1.125em;
+            line-height: 1.625em;
+        }
+
+    }
     
-    font-size: 1.75em;
-    //line-height: 2.25em;
-
-   
 
     &.mobile, &.tablet {
         padding-left: 1.875em;
@@ -20,15 +31,24 @@
         grid-template-columns: repeat(1, auto); 
     }
     &.desktop, &.laptop {
-        padding-left: 5.625em;
-        padding-right: 5.625em;
+        padding-left: 15.625em;
+        padding-right: 15.625em;
     }
 
     .post {   
-        padding: 1em; 
+        position: relative;
+        padding: 3.75em; 
         color: #fff;
-        background-color: silver;
+        background-color: #333;
         width: 100%;
+        min-height: 25em;
+        //vertical-align: text-bottom;
+        filter: grayscale(60%);
+
+        &:hover {
+            filter: none;
+            transition: all 2s ease; 
+        }
         
          
         &:nth-child(n+2 ) {  
@@ -45,7 +65,12 @@
             grid-row: 2 / 4;                          
             grid-column: 3 / 5;                        
           }
-
+          .bottom_line {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              padding: 3.75em;
+          }
         
     }
      

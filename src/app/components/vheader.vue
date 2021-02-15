@@ -8,6 +8,7 @@
     <div class="icon-bar" @click="ShowFunction">
         <i></i>
         <i></i> 
+        <i></i> 
     </div>
 
     <ul id="nav-lists">

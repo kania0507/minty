@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "prod": "webpack   -p --watch"
+    "prod": "webpack   -p "
   },
   "author": "AKC",
   "license": "ISC",

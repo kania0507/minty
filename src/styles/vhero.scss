@@ -1,0 +1,27 @@
+.vhero{
+	min-width: 50%;
+	min-height: 25vh;
+	position: relative;
+	z-index: 1;
+	color: #000;
+	font-weight: 700;
+	font-family: "Nunito";
+	text-align: center;
+	padding: 1.875em;
+
+	h2 {
+		font-size: 3em;
+		line-height: 3.75em;
+
+		&.mobile, &.tablet {
+				
+			font-size: 1.75em;
+			line-height: 2.25em;
+			
+		}
+
+	}
+
+
+	
+}
