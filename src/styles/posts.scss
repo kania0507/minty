@@ -17,6 +17,7 @@
     &.mobile, &.tablet {
         padding-left: 1.875em;
         padding-right: 1.875em;
+        grid-template-columns: repeat(1, auto); 
     }
     &.desktop, &.laptop {
         padding-left: 5.625em;
@@ -24,7 +25,7 @@
     }
 
     .post {   
-        padding: 0.5em; 
+        padding: 1em; 
         color: #fff;
         background-color: silver;
         width: 100%;
