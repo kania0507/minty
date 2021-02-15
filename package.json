@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "prod": "webpack   -p --watch"
   },
   "author": "AKC",

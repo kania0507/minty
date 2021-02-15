@@ -1,7 +1,4 @@
-<template>
-  <div class="nav">  
-
-      
+<template> 
     <div class="container">
         <div class="logo">
             <a href="#"><img src="https://www.w3jar.com/wp-content/uploads/2019/05/microsoft.png" alt="logo"></a>
@@ -10,31 +7,25 @@
 
     <div class="icon-bar" @click="ShowFunction">
         <i></i>
-        <i></i>
-        <i></i>
+        <i></i> 
     </div>
 
     <ul id="nav-lists">
-        <li class="close"><span @click="HideFunction">×</span></li>
-        
-        <li  v-for="(menu, index) in menus" :key="index"><a :href=menu.url>{{ menu.title }}</a></li>
-        
+        <li class="close"><span @click="HideFunction">×</span></li> 
+        <li  v-for="(menu, index) in menus" :key="index"><a :href=menu.url>{{ menu.title }}</a></li> 
     </ul>
 
     </div>
     </div>
 
-  </div>
+  
 </template> 
 
 <script >  
 
 import axios from  "axios";
 export default {
- name: 'vheader',
- components: {
-    
-  },
+ name: 'vheader', 
   
   data: function () {
     return {  
@@ -75,9 +66,7 @@ export default {
         .catch(error => {
           console.log(error);
         });
-     },
-
-       
+     }, 
 
   },
    mounted: function() {    
@@ -88,4 +77,4 @@ export default {
   },
 }
 </script> 
-<style lang='scss' src="../../styles/vheader.scss"></style>
+<style lang='scss' src="../../styles/vheader.scss" scope></style>

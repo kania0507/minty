@@ -1,6 +1,16 @@
-body {
+* {
     font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    margin: 0 auto;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
 .hidden {
     display: none;
 }

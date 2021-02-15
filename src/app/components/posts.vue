@@ -1,17 +1,11 @@
 <template>
-    <div class="posts" :class="$mq" :column="$mq | mq({
-        mobile: 1,
-        tablet: 2,
-        laptop: 2,
-        desktop: 2
-      })">
-        <div v-for="(post, index) in posts" :key="index" class="post"     :style="[ post.featured_media!=0 ? { 'backgroundImage': 'url(' + post._embedded['wp:featuredmedia'][0].source_url   + ')', 'background-size': 'cover' } : {}]" > 
-         
-            {{ post.featured_media }} 
+    <div class="posts" :class="$mq" :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })">
+        <div v-for="(post, index) in posts" :key="index" class="post"   :style="[ post.featured_media!=0 ? { 'backgroundImage': 'url(' + post._embedded['wp:featuredmedia'][0].source_url   + ')', 'background-size': 'cover' } : { 'backgroundColor':'silver'}]" > 
+          
              <h3>{{index}}{{ post.title.rendered }} <small>{{ getPostDate(post.date) }} </small></h3>
              {{ post.excerpt.rendered }} <br />Author: {{ post.author }}, Category: {{ post.categories }}
-             
-        
+             {{ post.featured_media }} 
+              
         </div>
     </div>
 </template>
@@ -61,4 +55,4 @@ export default {
   }
     }
 </script>
-<style lang="scss" src="../../styles/posts.scss"></style>
+<style lang="scss" src="../../styles/posts.scss" scope></style>

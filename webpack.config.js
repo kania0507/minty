@@ -53,7 +53,7 @@ module.exports = {
     inline: true,
     hot: true,
     historyApiFallback: true,
-
+    publicPath: 'dist/', 
   },
   resolve: {
 

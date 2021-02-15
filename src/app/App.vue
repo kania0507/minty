@@ -7,11 +7,7 @@
 
 <script >
 import posts from './components/posts';
-import vheader from './components/vheader';
-
-
-
-
+import vheader from './components/vheader';  
 
 export default {
  name: 'app',
@@ -34,6 +30,5 @@ export default {
   methods: {  
   }
 }
-</script>
-<style lang='scss' src="../styles/app.scss"></style>
+</script> 
 <style lang='scss' src="../styles/globals.scss"></style>
