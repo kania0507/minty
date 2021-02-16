@@ -3,6 +3,7 @@
    <vheader class="header"></vheader>
    <vhero></vhero>
    <posts></posts>
+   <footer></footer>
   </div>
 </template> 
 
@@ -10,13 +11,15 @@
 import posts from './components/posts';
 import vheader from './components/vheader';  
 import vhero from './components/vhero';
+import footer from './components/footer';
 
 export default {
  name: 'app',
  components: {
     posts,
     vheader,
-    vhero
+    vhero,
+    footer
   },
   
   data: function () {

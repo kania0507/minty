@@ -1,5 +1,5 @@
 <template> 
-    <div class="container">
+    <div class="container"  :class="$mq" :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })">
         <div class="logo">
             <a href="#"><img src="https://www.w3jar.com/wp-content/uploads/2019/05/microsoft.png" alt="logo"></a>
         </div>
@@ -13,7 +13,7 @@
 
     <ul id="nav-lists">
         <li class="close"><span @click="HideFunction">×</span></li> 
-        <li  v-for="(menu, index) in menus" :key="index"><a :href=menu.url>{{ menu.title }}</a></li> 
+        <li  v-for="(menu, index) in menus" :key="index" class="list_elem"><a :href=menu.url class="menu_link">{{ menu.title }}</a></li> 
     </ul>
 
     </div>
