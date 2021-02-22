@@ -37,9 +37,9 @@ export default {
 	getPostDate(date){
 		//moment(date).format("lll");
 		var ob={
-			'day': moment().format("Do"), 
-			'month':moment().format("MMM"),
-			'year':moment().format("YYYY")
+			'day': moment(date).format("Do"), 
+			'month':moment(date).format("MMM"),
+			'year':moment(date).format("YYYY")
 		}; 
         return ob;
 		
