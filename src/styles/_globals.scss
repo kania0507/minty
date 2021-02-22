@@ -2,6 +2,7 @@
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 *,
 *::before,
@@ -27,3 +28,5 @@ a {
     display: block;
     position: relative;
 }
+
+@import '../styles/vars.scss';

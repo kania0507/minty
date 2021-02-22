@@ -9,6 +9,43 @@ function script_urls() {
 }
 add_action( 'wp_enqueue_scripts', 'script_urls' ); 
 
+
+// returns WP blog desc
+function get_blog_desc() {
+    ?>
+        <script type="text/javascript">
+         var blogDesc = '<?= get_bloginfo("description"); ?>';
+        </script>
+    <?php
+    }
+    add_action( 'wp_enqueue_scripts', 'get_blog_desc' ); 
+
+// custom logo support
+function themename_custom_logo_setup() {
+    $defaults = array(
+    'height'      => 100,
+    'width'       => 400,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array( 'site-title', 'site-description' ),
+   'unlink-homepage-logo' => true, 
+    );
+    add_theme_support( 'custom-logo', $defaults );
+   }
+   add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+
+// custom logo var
+function get_blog_logo() {
+    ?>
+        <script type="text/javascript">
+         var blogLogo = "<?= wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ) , 'full' ) ?>";
+        </script>
+    <?php
+    }
+    add_action( 'wp_enqueue_scripts', 'get_blog_logo' ); 
+
+
+
 // load script bundle
 function load_scripts(){        
    wp_enqueue_script('main',  get_stylesheet_directory_uri(). '/dist/main.bundle.js', [], '1.0', true);  

@@ -1,4 +1,4 @@
-
+@import '../styles/_vars.scss';
 
 .container {
     font-size: 0.75em;
@@ -17,8 +17,7 @@
   &.desktop, &.laptop {
       padding-left: 15.625em;
       padding-right: 15.625em;
-  }
-
+  } 
 
   min-height: 3.75em;
   //background-color: #333333;
@@ -94,7 +93,7 @@
   cursor: pointer;
   padding: 0.5em;
 
-  background: linear-gradient( to bottom, #ff9800 0%, #ff9800 100% );
+  background: linear-gradient( to bottom, $mainOrange 0%, $mainOrange 100% );
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 4px 4px;
@@ -189,7 +188,7 @@
     font-size: 16px;
     height: auto;
     line-height: normal;
-    color: #007fff; //#999;
+    //color: #007fff; //#999;
   }
 
   .container .navbar ul .close {

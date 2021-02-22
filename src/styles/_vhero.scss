@@ -1,6 +1,6 @@
 .vhero{
 	min-width: 50%;
-	min-height: 25vh;
+	min-height: 20vh;
 	position: relative;
 	z-index: 1;
 	color: #000;
@@ -11,10 +11,9 @@
 
 	h2 {
 		font-size: 3em;
-		line-height: 3.75em;
+		line-height: 2em;
 
-		&.mobile, &.tablet {
-				
+		&.mobile, &.tablet { 
 			font-size: 1.75em;
 			line-height: 2.25em;
 			

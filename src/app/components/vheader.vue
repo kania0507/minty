@@ -1,7 +1,8 @@
 <template> 
     <div class="container"  :class="$mq" :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })">
         <div class="logo">
-            <a href="#"><img src="https://www.w3jar.com/wp-content/uploads/2019/05/microsoft.png" alt="logo"></a>
+            <!--<a href="#"><img src="https://www.w3jar.com/wp-content/uploads/2019/05/microsoft.png" alt="logo"></a>-->
+            <a href="#"><img class="logo" :src='this.logo' alt="logo" /></a>
         </div>
     <div class="navbar">
 
@@ -17,8 +18,7 @@
     </ul>
 
     </div>
-    </div>
-
+    </div> 
   
 </template> 
 
@@ -40,7 +40,7 @@ export default {
       },
       // Returned menus in an Array
       menus: [],  
-     
+      logo: blogLogo
     }
   },
  
@@ -78,4 +78,4 @@ export default {
   },
 }
 </script> 
-<style lang='scss' src="../../styles/vheader.scss" scope></style>
+<style lang='scss' src="../../styles/_vheader.scss"></style>

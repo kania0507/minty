@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App.vue' 
 import VueMq from 'vue-mq';
 
+
 Vue.use(VueMq, {
   breakpoints: {
     mobile: 450,
@@ -12,7 +13,10 @@ Vue.use(VueMq, {
   }
 });
 
+Vue.prototype.$showWorks = false;
+
+
 new Vue({
-  el: '#app',
+  el: '#app', 
   render: h => h(App)
 })

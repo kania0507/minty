@@ -67,12 +67,7 @@ module.exports = {
 
 new VueLoader.VueLoaderPlugin(),
 /*
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html'),
-      inject: 'body',
-      excludeChunks: ['about'],
-      filename: 'index.html'
-    }),
+     
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       inject: 'body',

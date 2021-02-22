@@ -1,0 +1,114 @@
+@import '../styles/_vars.scss';
+.posts_wrapper {
+    display: block;
+    padding-left: 2.875em;
+    padding-right: 2.875em;
+
+    .gridder {
+        display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+        width: 100%; 
+        padding-top: 1.875em; 
+        padding-bottom: 1.875em;
+        grid-column-gap: 1em;
+        grid-row-gap: 1em; 
+    }
+
+.posts_header {
+    font-size: 1em;
+    letter-spacing: 3px;
+    color: #979797;
+
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    height: 5vh;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.posts {
+    position: relative;
+    height: 100%;
+    display: grid ; 
+    ///grid-template-columns: repeat(auto-fit, minmax(20em, 1fr)); 
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-content: space-around;
+    
+    padding-top: 1em;
+    padding-bottom: 1em;  
+ 
+    margin: 0 auto; 
+    &.mobile, &.tablet {
+       
+        padding-left: 1.875em;
+        padding-right: 1.875em;
+       // grid-template-columns: repeat(1, 1fr); 
+        
+        
+    }
+    &.desktop, &.laptop {
+        padding-left: 5.625em;
+        padding-right: 5.625em; 
+    } 
+
+}
+
+    .showMore  {
+       text-align: center;
+       padding: 1em;
+
+
+       ///
+       .showMoreBtn {
+        //font-family: Hack, monospace;
+        background: rgba($mainOrange, 0.9);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.5em;
+        //line-height: 3.75em;
+        padding: 1.5rem;
+        border: 0;
+        transition: all 0.5s; 
+        width: auto;
+        position: relative;
+        min-width: 15em;
+    
+        &::after {
+            content: "\f2f6";
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 400;
+            position: absolute;
+            left: 80%;
+            top: 54%;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+    
+        }
+    
+        &:hover {
+            background: $mainOrange;
+            transition: all 0.5s; 
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.25);
+            padding: 1.5rem 3rem 1.5rem 1.5rem;
+            color: #fff;
+            letter-spacing: 3px;
+    
+            &::after {
+                opacity: 1;
+                transition: all 0.5s;
+                color: #fff;
+    
+            }
+        }
+    
+    
+    }
+ 
+    }
+
+    
+}
