@@ -1,8 +1,7 @@
 import Vue from 'vue'
 //import VueRouter from 'vue-router'
 import App from './App.vue' 
-import VueMq from 'vue-mq';
-
+import VueMq from 'vue-mq';  
 
 Vue.use(VueMq, {
   breakpoints: {
@@ -12,8 +11,9 @@ Vue.use(VueMq, {
     desktop: Infinity,
   }
 });
+ 
 
-Vue.prototype.$showWorks = false;
+Vue.prototype.$showWorks = true;
 
 
 new Vue({

@@ -1,31 +1,27 @@
 <template>
-<div class="posts_wrapper">
+<div class="works_wrapper">
   <div class="posts_header">Works</div>
-    <div class="posts" :class="$mq" :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })"> 
-
-    <div  v-for="(post, index) in posts" :key="index"   
-        :class='[$mq, "div"+(index+1), "post" ]' :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })" >
-        <div class="child_post"  :style="[ post.featured_media!=0 ? { 'backgroundImage': 'linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), ' 
-        +'url(' + post._embedded['wp:featuredmedia'][0].source_url   + ')', 'background-size': 'cover' } : { }]">
-            <span class="bottom_line">
-             <a :href="post.link"><h2>{{ post.title.rendered }} </h2></a>
-            <!-- <p class="pexcerpt"><small>{{ getPostDate(post.date) }} </small><br /> {{ post.excerpt.rendered }} Author: {{ post.author }}, Category: {{ post.categories }}
-             {{ post.featured_media }} </p> -->
-              </span>
-            </div>
-        </div>
-        
+    <div class="works"  > 
+ 
+ <carousel :per-page="3" :navigate-to="someLocalProperty" :mouse-drag="true">
+    <slide v-for="(post, index) in posts" :key="index"   :workc=post class="slide"> 
+        <p><img :src="post._embedded['wp:featuredmedia'][0].source_url" class="img-responsive" /></p>
+        <h3>{{ post.title.rendered }}</h3>
+    </slide> 
+  </carousel>
+ 
+ 
      
-    </div><!-- /end posts -->
-  <div class="showMoreBtn"><button>Show more</button></div>
+    </div><!-- /end works -->
 
-
+  <div class="showMore"><button class="showMoreBtn">Show more</button></div>
     </div>
 </template>
 
 <script>
 import axios from  "axios";
-import moment from "moment" 
+import moment from "moment" ; 
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
     name: 'works', 
@@ -40,6 +36,9 @@ export default {
         _embed: true //Response should include embedded resources
       }, 
       posts: [],   // Returned Posts
+      options: {
+          currentPage: 0
+        }
     };
   }, 
   methods: {
@@ -65,6 +64,10 @@ export default {
      
     this.posts=[];
     this.getRecentPosts();
+  },
+ components: {
+   Carousel,
+    Slide
   }
     }
 </script>

@@ -35,8 +35,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "font-awesome": "^4.7.0",
     "moment": "^2.29.1",
     "vue": "^2.0.8",
+    "vue-carousel": "^0.18.0",
     "vue-mq": "^1.0.1",
     "vue-router": "^3.0.1"
   }

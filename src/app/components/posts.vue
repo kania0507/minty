@@ -22,7 +22,7 @@ export default {
       // Wordpress Posts Endpoint
       postsUrl: "./wp-json/wp/v2/posts",
       queryOptions: {
-        per_page: 4, 
+        per_page: 10, 
         page: 1, // Current page 
         _embed: true //Response should include embedded resources
       }, 

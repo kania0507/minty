@@ -1,6 +1,6 @@
 <template> 
   <article> 
-	<a href="#">
+	<a :href="postc.link">
      <figure  :style="[ postc.featured_media!=0 ? { 'background-image':'url(' + postc._embedded['wp:featuredmedia'][0].source_url   + ')'} : { }] " >
         <div class="date"><span class="card-date-day">{{ getPostDate(postc.date).day }}</span>
 		<span class="card-date-month">{{ getPostDate(postc.date).month }}{{ getPostDate(postc.date).year }}</span></div>
