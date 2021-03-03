@@ -1,44 +1,41 @@
 <template>
-  <div id="app" class="main" :style="someStyle">   
+  <div id="app" class="main" :style="someStyle">  
    <vheader class="header"></vheader>
-   <vhero></vhero>
-   <posts></posts>
-   <works v-if=this.$showWorks></works> 
-   <footer></footer>
+   <vhero></vhero>     
+   <router-view :key="$route.fullPath"></router-view>
+   <works v-if="this.checkUrl('/')"></works> 
+   <vfooter></vfooter> 
   </div>
 </template> 
 
-<script >
-import posts from './components/posts';
+<script > 
+//this.$showWorks&&
 import vheader from './components/vheader';  
-import vhero from './components/vhero';
-import footer from './components/footer';
+import vhero from './components/vhero'; 
 import works from './components/works';
+import vfooter from './components/vfooter';
 
 export default {
  name: 'app',
- components: {
-    posts,
+ components: { 
     vheader,
     vhero,
-    footer,
-    works
+    works,
+    vfooter,
   },
   
   data: function () {
-  return {  
-	 someStyle: {
-		//background: 'url('+stylesheetDir+'/src/assets/14.png) no-repeat'
-	 }
+    return {  
+	    someStyle: {
+		  //background: 'url('+stylesheetDir+'/src/assets/14.png) no-repeat'
+	  }, 
 
     }
+  }, 
+  methods: {     
   },
-  mounted: function() {    
-	  //console.log(stylesheetDir);  
-    //console.log(this.$showWorks);
-  },
-  methods: {    
-
+  mounted() {
+     
   }
 }
 </script> 

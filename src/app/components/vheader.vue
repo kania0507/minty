@@ -1,8 +1,7 @@
 <template> 
     <div class="container"  :class="$mq" :column="$mq | mq({  mobile: 1, tablet: 2,  laptop: 2,  desktop: 2  })">
-        <div class="logo">
-            <!--<a href="#"><img src="https://www.w3jar.com/wp-content/uploads/2019/05/microsoft.png" alt="logo"></a>-->
-            <a href="#"><img class="logo" :src='this.logo' alt="logo" /></a>
+        <div class="logo"> 
+            <router-link to="/"><img class="logo" :src='this.logo' alt="logo" /></router-link>
         </div>
     <div class="navbar">
 
@@ -14,11 +13,12 @@
 
     <ul id="nav-lists">
         <li class="close"><span @click="HideFunction">×</span></li> 
-        <li  v-for="(menu, index) in menus" :key="index" class="list_elem"><a :href=menu.url class="menu_link">{{ menu.title }}</a></li> 
+        <li  v-for="(menu, index) in menus" :key="index" class="list_elem"> <!-- <router-link :to="{ name:'vheader', params: { path: menu.ID }}"  > <!-- :to="{  name:'vheader', params: {ip: menu.ip }}" >   -->
+          <a :href=menu.url class="menu_link">{{ menu.title }}</a> </li> 
     </ul>
 
     </div>
-    </div> 
+  </div> 
   
 </template> 
 
@@ -32,7 +32,7 @@ export default {
     return {  
         navpng: stylesheetDir+'/src/assets/Navigation.png',
          // Wordpress Menus Endpoint
-      menusUrl: "./wp-json/wp/v2/menu",
+      menusUrl: base_url+"/wp-json/wp/v2/menu",
       queryOptions: {
         per_page: 10, // Only retrieve the 10 most recent blog posts.
         page: 1, // Current page of the collection.
@@ -75,6 +75,7 @@ export default {
     
     this.menus=[];
     this.getRecentMenus();
+    console.log(this.$router); 
   },
 }
 </script> 

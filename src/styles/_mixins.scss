@@ -1,6 +1,20 @@
+@import '../styles/_vars.scss';
 @mixin wrap-paddings {
     padding-left: 10vw;
     padding-right: 10vw;
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
+
+@mixin responsive($bpoint) {
+
+    @if $bpoint == $sm {
+        @media (min-width: $sm) { @content; }
+      } @else if $bpoint == $md {
+        @media (min-width: $md) { @content; }
+      }@else if $bpoint == $lg {
+        @media (min-width: $lg) { @content; }
+      } 
+
+}
+

@@ -1,9 +1,26 @@
 <?php 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Remove all default WP template redirects/lookups
+remove_action( 'template_redirect', 'redirect_canonical' );
+
+// Redirect all requests to index.php so the Vue app is loaded and 404s aren't thrown
+function remove_redirects() {
+	add_rewrite_rule( '^/(.+)/?', 'index.php', 'top' );
+}
+add_action( 'init', 'remove_redirects' );
+
 // returns WP theme path
 function script_urls() {
 ?>
     <script type="text/javascript">
      var stylesheetDir = '<?= get_bloginfo("stylesheet_directory"); ?>';
+    var permalink = '<?= get_permalink(); ?>';
+    var post_slug =  '<?= get_post_field( 'post_name', get_post() ); ?>';
+     
     </script>
 <?php
 }
@@ -20,6 +37,24 @@ function get_blog_desc() {
     }
     add_action( 'wp_enqueue_scripts', 'get_blog_desc' ); 
 
+
+
+
+   //router  
+function rest_theme_scripts() {
+    ?>
+    <script type="text/javascript">
+	    var base_url  = '<?= esc_url_raw( home_url() ); ?>';
+	    var base_path = '<?= rtrim( parse_url( esc_url_raw( home_url() )   , PHP_URL_PATH ), '/' ); ?>';
+    </script>
+    <?php
+
+}
+
+add_action( 'wp_enqueue_scripts', 'rest_theme_scripts', 10 );
+
+
+
 // custom logo support
 function themename_custom_logo_setup() {
     $defaults = array(
@@ -33,6 +68,8 @@ function themename_custom_logo_setup() {
     add_theme_support( 'custom-logo', $defaults );
    }
    add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+
+
 
 // custom logo var
 function get_blog_logo() {
@@ -49,6 +86,17 @@ function get_blog_logo() {
 // load script bundle
 function load_scripts(){        
    wp_enqueue_script('main',  get_stylesheet_directory_uri(). '/dist/main.bundle.js', [], '1.0', true);  
+
+   /*
+   wp_localize_script('namespace-scripts', 'mynamespace', array(
+    'rootapiurl' => esc_url_raw(rest_url()),
+    'nonce' => wp_create_nonce('wp_rest')
+    ));
+*/
+    $config = array( 
+        'rest_url' => rest_url(),
+    );
+    wp_localize_script('main', 'wp_config', $config);
 }
 add_action( 'wp_enqueue_scripts', 'load_scripts', 100 );
 
